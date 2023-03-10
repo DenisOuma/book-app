@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function BookEdit({ propTitle, editBook }) {
+function BookEdit({ propTitle, closeForm }) {
 	const [title, setTitle] = useState(propTitle.title);
 
 	const handleEditBook = (e) => {
 		e.preventDefault();
-		editBook(propTitle.id, title);
+		closeForm(propTitle.id, title);
 		console.log("Here is our updating title to the app ==>", title);
 	};
 	return (

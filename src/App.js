@@ -19,7 +19,6 @@ function App() {
 	const deleteBookByid = (id) => {
 		const deleteBookUpdate = books.filter((book) => book.id !== id);
 		setBooks(deleteBookUpdate);
-		console.log("The book Id is ===> ", id);
 	};
 
 	// Handle update a book

@@ -10,9 +10,14 @@ function BookShow({ bookInfo, deleteBook, editBook }) {
 		setShowEdit(!showEdit);
 	};
 
+	const handleForm = (id, title) => {
+		setShowEdit(false);
+		editBook(id, title);
+	};
+
 	let content = <h3>{bookInfo.title}</h3>;
 	if (showEdit) {
-		content = <BookEdit propTitle={bookInfo} editBook={editBook} />;
+		content = <BookEdit propTitle={bookInfo} closeForm={handleForm} />;
 	}
 	return (
 		<div className="book-show">
