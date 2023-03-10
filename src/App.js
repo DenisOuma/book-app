@@ -41,11 +41,11 @@ function App() {
 		});
 		const editBook = books.map((book) => {
 			if (book.id === id) {
-				return { ...book, title };
+				return { ...book, ...res.data };
 			}
 			return book;
 		});
-		setBooks([...books]);
+		setBooks(editBook);
 	};
 	return (
 		<div className="app">
