@@ -1,3 +1,16 @@
 {
-	"books": []
+  "books": [
+    {
+      "title": "Harry Potter",
+      "id": 1
+    },
+    {
+      "title": "Business Cooperate",
+      "id": 2
+    },
+    {
+      "title": "Music School",
+      "id": 3
+    }
+  ]
 }
