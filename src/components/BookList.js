@@ -1,10 +1,9 @@
 import BookShow from "./BookShow";
-function BookList({ bookList }) {
-	console.log("Here is the book", bookList);
+function BookList({ bookList, deleteBook }) {
 	const bookStore = bookList.map((book) => (
-		<BookShow key={book.id} bookInfo={book.title} />
+		<BookShow key={book.id} bookInfo={book} deleteBook={deleteBook} />
 	));
-	return <div>{bookStore}</div>;
+	return <div className="book-list">{bookStore}</div>;
 }
 
 export default BookList;

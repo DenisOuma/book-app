@@ -1,7 +1,15 @@
-function BookShow({ bookInfo }) {
+function BookShow({ bookInfo, deleteBook }) {
+	const handleDelete = () => {
+		deleteBook(bookInfo.id);
+	};
 	return (
-		<div>
-			<h1>{bookInfo}</h1>
+		<div className="book-show">
+			{bookInfo.title}
+			<div className="action">
+				<button className="delete" onClick={handleDelete}>
+					Delete
+				</button>
+			</div>
 		</div>
 	);
 }

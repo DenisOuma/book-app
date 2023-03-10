@@ -8,16 +8,22 @@ function App() {
 	const createBook = (title) => {
 		console.log("Book added with ", title);
 		const id = Math.random().toString().slice(2, 30);
-		// eslint-disable-next-line no-restricted-globals
 
-		setBooks([...books, { id: id, title: title }]);
+		setBooks([...books, { id: id, title }]);
 	};
 
 	console.log(books);
+
+	const deleteBookByid = (id) => {
+		const deleteBookUpdate = books.filter((book) => book.id !== id);
+
+		setBooks(deleteBookUpdate);
+		console.log("The book Id is ===> ", id);
+	};
 	return (
-		<div>
+		<div className="app">
+			<BookList bookList={books} deleteBook={deleteBookByid} />
 			<BookCreate onCreate={createBook} />
-			<BookList bookList={books} />
 		</div>
 	);
 }
