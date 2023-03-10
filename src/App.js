@@ -34,6 +34,7 @@ function App() {
 	};
 	return (
 		<div className="app">
+			<h1>My Reading List</h1>
 			<BookList
 				bookList={books}
 				deleteBook={deleteBookByid}
