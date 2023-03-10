@@ -39,8 +39,13 @@ function App() {
 		const res = await axios.put(`http://localhost:5000/books/${id}`, {
 			title,
 		});
-
-		setBooks([...books, res.data]);
+		const editBook = books.map((book) => {
+			if (book.id === id) {
+				return { ...book, title };
+			}
+			return book;
+		});
+		setBooks([...books]);
 	};
 	return (
 		<div className="app">

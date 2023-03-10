@@ -1,23 +1,11 @@
 {
   "books": [
     {
-      "title": "test",
-      "id": 7
-    },
-    {
       "title": "Movies",
       "id": 8
     },
     {
-      "title": "Safaricom",
-      "id": 9
-    },
-    {
-      "title": "Music",
-      "id": 10
-    },
-    {
-      "title": "Javascript",
+      "title": "asdasd",
       "id": 11
     }
   ]
