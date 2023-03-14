@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import BooksContext from "./context/books";
 import BookShow from "./BookShow";
 function BookList({ bookList, deleteBook, editBook }) {
+	const value = useContext(BooksContext);
+
 	const bookStore = bookList.map((book) => (
 		<BookShow
 			key={book.id}
@@ -8,7 +12,13 @@ function BookList({ bookList, deleteBook, editBook }) {
 			editBook={editBook}
 		/>
 	));
-	return <div className="book-list">{bookStore}</div>;
+	return (
+		<div className="book-list">
+			{" "}
+			{value}
+			{bookStore}
+		</div>
+	);
 }
 
 export default BookList;
