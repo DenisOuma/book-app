@@ -6,11 +6,12 @@ const Provider = ({ children }) => {
 	const [count, setCount] = useState(5);
 
 	const valueSharede = {
-		count: count,
+		count,
 		incrimentCount: () => {
 			setCount(count + 1);
 		},
 	};
+
 	return (
 		<BooksContext.Provider value={valueSharede}>
 			{children}
