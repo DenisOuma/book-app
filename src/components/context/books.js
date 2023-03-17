@@ -43,7 +43,19 @@ const Provider = ({ children }) => {
 		});
 		setBooks(editBook);
 	};
-	return <BooksContext.Provider value={{}}>{children}</BooksContext.Provider>;
+
+	const valuToShare = {
+		books,
+		getBooks,
+		createBook,
+		deleteBookByid,
+		editBookById,
+	};
+	return (
+		<BooksContext.Provider value={valuToShare}>
+			{children}
+		</BooksContext.Provider>
+	);
 };
 export { Provider };
 export default BooksContext;
