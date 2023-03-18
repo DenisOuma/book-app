@@ -1,20 +1,28 @@
 {
   "books": [
     {
-      "title": "Music",
-      "id": 8
+      "title": "Maureen",
+      "id": 1
     },
     {
-      "title": "Business",
-      "id": 12
+      "title": "James",
+      "id": 2
     },
     {
-      "title": "Working with react ",
-      "id": 13
+      "title": "Music Information",
+      "id": 3
     },
     {
-      "title": "welcome",
-      "id": 14
+      "title": "Getting hired",
+      "id": 4
+    },
+    {
+      "title": "get a job",
+      "id": 5
+    },
+    {
+      "title": "Being Employed",
+      "id": 6
     }
   ]
 }
