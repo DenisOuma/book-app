@@ -6,17 +6,16 @@ const Provider = ({ children }) => {
 	const [books, setBooks] = useState([]);
 
 	const getBooks = useCallback(async () => {
-		const res = await axios.get("http://localhost:5000/books");
+		const { data } = await axios.get("http://localhost:5000/books");
 
-		setBooks([...books, ...res.data]);
-		console.log(res.data);
+		setBooks((prev) => [...books, ...data]);
 	}, []);
 
 	const createBook = async (title) => {
-		const res = await axios.post("http://localhost:5000/books", {
+		const { data } = await axios.post("http://localhost:5000/books", {
 			title,
 		});
-		setBooks([...books, res.data]);
+		setBooks((prev) => [...books, data]);
 	};
 
 	console.log("Here are the Books", books);
@@ -31,16 +30,16 @@ const Provider = ({ children }) => {
 	// Handle update a book
 
 	const editBookById = async (id, title) => {
-		const res = await axios.put(`http://localhost:5000/books/${id}`, {
+		const { data } = await axios.put(`http://localhost:5000/books/${id}`, {
 			title,
 		});
 		const editBook = books.map((book) => {
 			if (book.id === id) {
-				return { ...book, ...res.data };
+				return { ...book, ...data };
 			}
 			return book;
 		});
-		setBooks(editBook);
+		setBooks((prev) => editBook);
 	};
 
 	const valuToShare = {
