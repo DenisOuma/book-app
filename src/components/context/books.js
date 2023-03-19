@@ -6,40 +6,52 @@ const Provider = ({ children }) => {
 	const [books, setBooks] = useState([]);
 
 	const getBooks = useCallback(async () => {
-		const { data } = await axios.get("http://localhost:5000/books");
-
-		setBooks((prev) => [...books, ...data]);
+		try {
+			const { data } = await axios.get("http://localhost:5000/books");
+			setBooks((prev) => [...data, ...books]);
+		} catch (error) {
+			console.log(error);
+		}
 	}, []);
 
 	const createBook = async (title) => {
-		const { data } = await axios.post("http://localhost:5000/books", {
-			title,
-		});
-		setBooks((prev) => [...books, data]);
+		try {
+			const { data } = await axios.post("http://localhost:5000/books", {
+				title,
+			});
+			setBooks((prev) => [data, ...books]);
+		} catch (error) {
+			console.log(error);
+		}
 	};
-
-	console.log("Here are the Books", books);
-
 	// Handle Delete an Element
 	const deleteBookByid = async (id) => {
-		await axios.delete(`http://localhost:5000/books/${id}`);
-		const deleteBookUpdate = books.filter((book) => book.id !== id);
-		setBooks(deleteBookUpdate);
+		try {
+			await axios.delete(`http://localhost:5000/books/${id}`);
+			const deleteBookUpdate = books.filter((book) => book.id !== id);
+			setBooks(deleteBookUpdate);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	// Handle update a book
 
 	const editBookById = async (id, title) => {
-		const { data } = await axios.put(`http://localhost:5000/books/${id}`, {
-			title,
-		});
-		const editBook = books.map((book) => {
-			if (book.id === id) {
-				return { ...book, ...data };
-			}
-			return book;
-		});
-		setBooks((prev) => editBook);
+		try {
+			const { data } = await axios.put(`http://localhost:5000/books/${id}`, {
+				title,
+			});
+			const editBook = books.map((book) => {
+				if (book.id === id) {
+					return { ...book, ...data };
+				}
+				return book;
+			});
+			setBooks((prev) => editBook);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	const valuToShare = {
